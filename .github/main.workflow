@@ -1,8 +1,9 @@
 workflow "do-something" {
-  on = "foo"
-  resolves = ["echo"]
+  on = "push"
+  resolves = ["test"]
 }
 
-action "echo" {
-  runs = ["echo 'hello world!'"]
+action "test" {
+  uses = "./action1"
+  args = "hello world!"
 }
